@@ -82,3 +82,5 @@ function isValidPassword(password){
     }
     return {result: true};
 }
+
+console.log(isValidPassword("c|e_AbC>F%8J%k`N8"))
