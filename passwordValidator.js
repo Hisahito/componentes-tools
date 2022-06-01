@@ -1,3 +1,28 @@
+function getSequence(chars, str, max) {
+    let sequence = "";
+    let index = -1;
+    if(str){
+        for(let char of str) {
+                if(index === -1){
+                index = chars.indexOf(char.toLowerCase());
+                sequence = char;
+            } else {
+                if(chars[index + 1] === char.toLowerCase()) {
+                    sequence += char;
+                    index++;
+                } else {
+                    sequence = "";
+                    index = -1;
+                }
+            }
+            if(sequence.length >= max) {
+                return sequence
+            }
+        }
+    }
+    return "";
+}
+
 function hasSequence(str, max){
     if(str) {
         let letters = "abcdefghijklmnñopqrstuvwxyz";
@@ -20,6 +45,7 @@ function hasSequence(str, max){
     }
     return "";
 }
+
 function isValidPassword(password){
     if(password.length < 16) {
         return {
