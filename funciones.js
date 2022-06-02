@@ -26,7 +26,7 @@ class Circulo {
 
   /////////////////////////////////////////
   ////////////////////////////////////////
-  // funcion que agrega una propiedad taxes al objeto con su valor. 
+  // Funcion que agrega una propiedad taxes al objeto con su valor. 
   solution1([
     {
       name: "Product 1",
@@ -52,13 +52,16 @@ class Circulo {
 
   /////////////////////////////////////////////
   ////////////////////////////////////////////
-  // funcion 
+  // Funcion que suma los numeros de un array
   function solution2(numbers){
    return numbers.reduce((a, b) => a + b )
   }
   
-  solution2([2, 4, 8])
+  solution2([2, 4, 8]) //14
+
   ///////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////
+  // Funcion que suma el total de las ordenes del objeto solution3
   solution3([
     {
       customerName: "Nicolas",
@@ -71,44 +74,61 @@ class Circulo {
       delivered: false,
     },
   ]);
+
   function solution3(orders){
     let total = orders
     .map(order => order.total)
     .reduce((a,b) => a + b )
-    return total
+    return total //total orders: 220
   }
+
   ///////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////
+  // Funcion que regresa true or false si alguno de los numeros es par o divisibles entre 2
   function solution4(numbers){
     return numbers.some(number => number % 2 == 0)
   }
   
-  solution4([1, 3, 5])
+  solution4([1, 3, 5]) //false
+
   /////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////
+  // ejemplo del uso de metodo spread, aqui el metodo me dividie el string en un array de/por cada letra
   const nombre = "Victor Isai";
   console.log([...nombre])
+
   /////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////
+  // Funcion que regresa el index del array si encuentra concidencia con alguno del array
   function solution5(words){
     const index = words.findIndex((item) => item === 'myKey')
        return index !== -1 ? index : false;
   }
   
-  solution5(["diamonds", "myKey", "spades", "AS"])
+  solution5(["diamonds", "myKey", "spades", "AS"]) //"myKey"
+
   //////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  // Funcion que remplaza los espacios por un gion -
   function solution6(title){
     return title.replaceAll(" ", "-")
   }
   
-  solution6("curso de arrays")
+  solution6("curso de arrays") // "curso-de-arrays"
   
   ///////////////////////////////////////////////////
+  //////////////////////////////////////////////////
+  // Funcion que genera un #HashTag de twitter al darle un string cualquiera
   function hashtagGenerator(words){
     return `#${words.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join("")}`;
         
   }
   
-  hashtagGenerator("Javascript challenge")
+  hashtagGenerator("Javascript challenge") // "#JavascriptChallange"
   
-  
+  /////////////////////////////////////////////////
+  ////////////////////////////////////////////////
+  // Funcion que cuenta el total de palabras en un string o parrafo
   function contadorDePalabras(lines){
     return lines.flatMap(line => line.split(' ')).length
   }
@@ -118,8 +138,11 @@ class Circulo {
     "Explicit is better than implicit",
     "Simple is better than complex",
     "Complex is better than complicated",
-  ]);
+  ]); // 20
   
+  ////////////////////////////////////////////////
+  ///////////////////////////////////////////////
+  // Funcion que acomoda un array de numero de mayor a menor
   function deMayorAMenor(array){
     let arr = array.sort(function(a,b){
       return a - b
@@ -127,8 +150,11 @@ class Circulo {
     return arr.reverse()
   }
   
-  deMayorAMenor([3, 1, 11, 5, 2, 7, 8])
+  deMayorAMenor([3, 1, 11, 5, 2, 7, 8]) //[ 11, 8, 7, 5, 3, 2, 1 ]
   
+  ////////////////////////////////////////////////
+  ///////////////////////////////////////////////
+  // Funcion que acomoda un array de string por de menor a mayor por su tamaño o cantidad de palabras 
   function arrayDeMenorAMayor(array){
       return array.sort((a,b) => a.length - b.length)
   }
@@ -138,8 +164,11 @@ class Circulo {
     "Viajar",
     "Sol",
     "Aprender"
-  ])
-  
+  ]) // [ 'Sol', 'Hola', 'Viajar', 'Aprender' ]
+
+  ///////////////////////////////////////////////
+  //////////////////////////////////////////////
+  // Funcion que acomoda un array por fechas decendentes 
   function porFechas(array){
     return array
       .sort((a,b) => b.dateOfBirth.getTime() - a.dateOfBirth.getTime())
@@ -161,7 +190,10 @@ class Circulo {
       dateOfBirth: new Date(1994, 10, 7),
     },
   ])
-  
+
+  ///////////////////////////////////////////////////
+  //////////////////////////////////////////////////
+  // Funcion que acomoda un array por orden alfabetico en los apellidos
   function apellidoPorAlfabeto(array){
     return array
                       //.map(arr => arr.split(" "))
@@ -173,9 +205,11 @@ class Circulo {
   apellidoPorAlfabeto(["Nicolas Molina",
     "Andrea Perez",
     "Zulema Vicente",
-    "Andrea Amador"])
+    "Andrea Amador"]) // [ 'Andrea Amador', 'Andrea Perez', 'Nicolas Molina', 'Zulema Vicente' ]
   
-  
+    ////////////////////////////////////////////////
+  /////////////////////////////////////////////////
+  // Funcion que retorna los numeros de un array por orden decendente y sin repetirse
   function valoresUnicos(array){
     let arr = array.sort((a,b) => a > b ? 1 : -1)
     let a = new Set(arr)
@@ -183,8 +217,11 @@ class Circulo {
     return result
   }
   
-  valoresUnicos([1, 2, -3, -1, 2, 4, 4, 1, 45, -1])
+  valoresUnicos([1, 2, -3, -1, 2, 4, 4, 1, 45, -1]) // [ -3, -1, 1, 2, 4, 45 ]
   
+  /////////////////////////////////////////////////
+  ////////////////////////////////////////////////
+  // Funcion quer cuenta las veces que un valor se repite
   function contador(array){
     return array.reduce((obj, item) => {
           obj[item] ? obj[item] += 1 : obj[item] = 1;
@@ -192,4 +229,12 @@ class Circulo {
        }, {});
   }
   
-  contador([1, 2, -3, -1, 2, 4, 4, 1, 45, -1])
+  contador([1, 2, -3, -1, 2, 4, 4, 1, 45, -1]) /* {
+    '1': 2,
+    '2': 2,
+    '4': 2,
+    '45': 1,
+    '-3': 1,
+    '-1': 2
+  }
+  */
