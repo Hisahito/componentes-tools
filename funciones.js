@@ -238,3 +238,24 @@ class Circulo {
     '-1': 2
   }
   */
+
+  //////////////////////////////////////////////
+  /////////////////////////////////////////////
+  // Funcion que edita un elemento deun array sin modificar el array original
+  function editaElemento(array, index, newValue){
+    return array.map((item, i) => {
+      return (i === index) ? newValue : item;
+    });
+ } 
+ 
+ editaElemento([1, 2, 3], 0, "change"); //['change', 2, 3]
+
+
+ ///////////////////////////////////////////////
+ //////////////////////////////////////////////
+ // Funcion que elimina el indice que se pide sin modificar el array original
+ function solution(array, index) {
+	return array.filter((item, i) => i !== index)
+}; 
+
+solution([1, 2, 3], 0); // [2, 3]
